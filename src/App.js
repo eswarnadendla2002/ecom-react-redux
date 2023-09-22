@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import LandingPage from "./pages/landing_page";
+import RegistrationPage from "./pages/registration_page";
+import { Container } from "reactstrap";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { routes } from "./routes/routes";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <BrowserRouter>
+        <Routes>
+          {routes &&
+            routes.map((item, index) => {
+              return (
+                <Route
+                  key={index}
+                  path={item.path}
+                  element={<item.component />}
+                ></Route>
+              );
+            })}
+        </Routes>
+      </BrowserRouter>
+    </Container>
   );
 }
 
