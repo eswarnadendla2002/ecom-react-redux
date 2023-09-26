@@ -1,6 +1,6 @@
 import { Row, Col } from "reactstrap";
 import ProductCard from "../product_cards/product_card";
-const SmartphonesComponents = ({ products, productCategory }) => {
+const ProductsComponent = ({ products, productCategory }) => {
   return (
     <>
       <Row>
@@ -18,6 +18,7 @@ const SmartphonesComponents = ({ products, productCategory }) => {
                     brand={item.brand}
                     text={item.description}
                     image={item.thumbnail}
+                    id={item.id}
                   />
                 </Col>
               </>
@@ -28,4 +29,4 @@ const SmartphonesComponents = ({ products, productCategory }) => {
   );
 };
 
-export default SmartphonesComponents;
+export default ProductsComponent;

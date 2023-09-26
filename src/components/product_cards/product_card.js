@@ -1,5 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import LandingPage from "../../pages/landing_page";
+import ProductDetails from "../../pages/product_details_page";
 import {
   Card,
   CardBody,
@@ -9,6 +11,10 @@ import {
   Button,
 } from "reactstrap";
 const ProductCard = (props) => {
+  const navigate = useNavigate();
+  const handleDetails = (id) => {
+    navigate(`/products/details/${id}`);
+  };
   return (
     <Card
       style={{
@@ -23,7 +29,13 @@ const ProductCard = (props) => {
         </CardSubtitle>
         <CardText>{props.text}</CardText>
         <Button>Add to Cart</Button>
-        <Button>Buy Product</Button>
+        <Button
+          onClick={() => {
+            handleDetails(props.id);
+          }}
+        >
+          Details
+        </Button>
       </CardBody>
     </Card>
   );

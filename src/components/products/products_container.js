@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import SmartphonesComponents from "./smartphones_components";
+import ProductsComponent from "./products_components";
 
-const SmartphoneContainer = () => {
+const ProductsContainer = () => {
   const routeParams = useParams();
   const [products, setProducts] = useState([]);
   const [productCategory, setProductCategory] = useState("");
@@ -21,11 +21,8 @@ const SmartphoneContainer = () => {
   }, []);
 
   return (
-    <SmartphonesComponents
-      products={products}
-      productCategory={productCategory}
-    />
+    <ProductsComponent products={products} productCategory={productCategory} />
   );
 };
 
-export default SmartphoneContainer;
+export default ProductsContainer;
